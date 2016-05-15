@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('layouts.index');
 });
+Route::get('test', function() {
+   $user = new User();
+   $user->email = 'cosme_fulanito@mail.com';
+   $user->real_name = 'cosme';
+   $user->password = Hash::make('1234');
+   $user->level = 1;
+   $user->active = true;
+   $user->save();
+   return 'Usuario insertado correctamente.';
+});
+Route::get('algo', 'prueba@configuracion');
