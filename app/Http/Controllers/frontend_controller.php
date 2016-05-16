@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Modelos\Configuracion;
 
 use App\Http\Requests;
 
@@ -15,7 +16,18 @@ class frontend_controller extends Controller
      */
     public function index()
     {
-        //
+        $conf=Configuracion::find(1);
+        if($conf->habilitada){
+        
+         return view('indexHabil', ['titulo' => $conf->titulo,
+                                        'descripcion'=>$conf->descripcion,
+                                        'contacto'=>$conf->mailContacto]);
+        }
+        else{
+            return view('indexNoHabil', ['titulo' => $conf->titulo,
+                                        'msj'=>$conf->textoDeshab,
+                                        'contacto'=>$conf->mailContacto]);
+        }
     }
 
     /**

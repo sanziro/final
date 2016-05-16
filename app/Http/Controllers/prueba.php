@@ -11,6 +11,6 @@ class prueba extends Controller
 {
   public function configuracion()
 {
-  return Configuracion::all();;
+  return Configuracion::find(1)->titulo;;
 }
 }
