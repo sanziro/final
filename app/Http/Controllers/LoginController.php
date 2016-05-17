@@ -39,19 +39,21 @@ if ($validator->fails()) {
         'username'  => Input::get('username'),
         'password'  => Input::get('password')
     );
+
     if (Auth::attempt($userdata)) {
 
         // validation successful!
         // redirect them to the secure section or whatever
         // return Redirect::to('secure');
         // for now we'll just echo success (even though echoing in a controller is bad)
+        echo Auth::user()->rol;
         echo 'entro!';
 
     } else {
       echo "no entro";
 
         // validation not successful, send back to form
-        return Redirect::to('/algo');
+        return Redirect::to('/');
 
     }
 

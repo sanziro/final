@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Modelos\Usuario;
+use Hash;
 //use App\Modelos\Configuracion;
 class UsuarioController extends Controller
 {
@@ -25,5 +26,16 @@ class UsuarioController extends Controller
       //  $roles = Role::all();
           return view('UsuarioController.usuarios', array('usuario' => $users));
       }
+      public function decodificar(){
+        
+        $password = 'responsable';
+        $hashedPassword = Hash::make($password);
+        $users=Usuario::all();
+        echo $users;
+        echo $hashedPassword;
+
+      }
+
+
 
 }
