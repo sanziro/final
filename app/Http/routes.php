@@ -13,15 +13,10 @@
 
 Route::get('/', 'HomeController@index');
 //Route::get('login', 'LoginController@doLogin');
-
 //Route::get('/', 'frontend_controller@index');
-
-
 Route::post('login', ['uses' => 'LoginController@dologin']);
 // route to process the form
-
-
 Route::get('/home', 'HomeController@index');
 
-
-Route::get('/home', 'HomeController@index');
+Route::get('backend/usuarios', 'UsuarioController@index');
+Route::post('backend/usuarios/add', 'UsuarioController@add');

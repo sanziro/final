@@ -36,7 +36,7 @@ if ($validator->fails()) {
 */
     // attempt to do the login
     $userdata = array(
-        'username'     => Input::get('username'),
+        'username'  => Input::get('username'),
         'password'  => Input::get('password')
     );
     if (Auth::attempt($userdata)) {
