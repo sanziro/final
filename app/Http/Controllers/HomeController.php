@@ -4,26 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Modelos\Configuracion;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
+      $conf=Configuracion::find(1);
+      if($conf->habilitada){
+
+       return view('LoginController.login', ['titulo' => $conf->titulo,
+                                      'descripcion'=>$conf->descripcion,
+                                      'contacto'=>$conf->mailContacto]);
+      }
+      else{
+          return view('indexNoHabil', ['titulo' => $conf->titulo,
+                                      'msj'=>$conf->textoDeshab,
+                                      'contacto'=>$conf->mailContacto]);
+      }
+        return view('HomeController.index');
     }
 }

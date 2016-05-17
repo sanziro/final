@@ -1,4 +1,4 @@
-@extends('indexHabil')
+@extends('HomeController.index')
 
 @section('contenido')
 <div id="content">
@@ -7,6 +7,7 @@
             <h2 class="">Inicie sesion</h2>
             {!! Form::open(array(
                     'url' =>'login',
+                    'method' => 'post',
 
               ))!!}
                <label for="inputEmail" class="text-laber-v1">Nombre de usuario</label>

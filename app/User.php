@@ -1,12 +1,12 @@
 <?php
 
 namespace App;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Model
 {
-   protected $table = 'Usuarios';
+  /* protected $table = 'Usuarios';
    protected $fillable = ['username', 'rol'];
    protected $guarded = ['id','habilitado', 'password'];
 
@@ -17,5 +17,5 @@ class User extends Model
 //$user = Auth::user();
 //$user->username = 'Johnprueba';
 
-//$user->save();
+//$user->save();*/
 }

@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', 'frontend_controller@index');
-Route::get('algo', 'prueba@configuracion');
+Route::get('/', 'HomeController@index');
+//Route::get('login', 'LoginController@doLogin');
+
+//Route::get('/', 'frontend_controller@index');
 
 
-
-
-// route to show the login form
-Route::get('login', array('uses' => 'LoginController@showLogin'));
+Route::post('login', ['uses' => 'LoginController@dologin']);
 // route to process the form
-Route::post('login', array('uses' => 'LoginController@doLogin'));
+
+
+Route::get('/home', 'HomeController@index');
+
 
 Route::get('/home', 'HomeController@index');
