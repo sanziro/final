@@ -28,13 +28,31 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
+    protected $redirectTo = '/';  /*si modificamos esto es donde nos lleva despues de hacer el login*/
+    
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
+
+
+     /**
+     * Muestra el formulario para login.
+     */
+    public function showLogin()
+    {
+        // Verificamos que el usuario no esté autenticado
+        if (Auth::check())
+        {
+            // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
+            return Redirect::to('/');
+        }
+        // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
+        return View::make('login');
+    }
+
+
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);

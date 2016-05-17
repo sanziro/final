@@ -18,8 +18,8 @@ class frontend_controller extends Controller
     {
         $conf=Configuracion::find(1);
         if($conf->habilitada){
-        
-         return view('indexHabil', ['titulo' => $conf->titulo,
+
+         return view('LoginController.login', ['titulo' => $conf->titulo,
                                         'descripcion'=>$conf->descripcion,
                                         'contacto'=>$conf->mailContacto]);
         }

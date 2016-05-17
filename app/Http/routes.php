@@ -13,3 +13,13 @@
 
 Route::get('/', 'frontend_controller@index');
 Route::get('algo', 'prueba@configuracion');
+
+
+
+
+// route to show the login form
+Route::get('login', array('uses' => 'LoginController@showLogin'));
+// route to process the form
+Route::post('login', array('uses' => 'LoginController@doLogin'));
+
+Route::get('/home', 'HomeController@index');
