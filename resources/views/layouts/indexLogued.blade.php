@@ -3,12 +3,13 @@
         <title>Escuela Graduada Joaquín V. González</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="images/JoaquinVGonzalez222.ico">
         <link rel="stylesheet" href='css/Styles-m1.css'>
         <link rel="stylesheet" href='css/Styles-m2.css'>
         <link rel="stylesheet" href='css/bootstrap.css'>
     </head>
     <body>
+        @include('navbar')
         <div class="real-Body">
             <div class="lineal-banner">
             <img id="banner-v1" src='images/banner.png' title="banner" alt="banner">

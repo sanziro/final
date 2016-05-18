@@ -32,7 +32,7 @@ class Kernel extends HttpKernel
         ],
         'api' => [
             'throttle:60,1',
-        ]
+        ],
     ];
 
     /**
@@ -48,6 +48,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'rol' => \App\Http\Middleware\Rol::class,
+        //'rol' => \App\Http\Middleware\Rol::class,
     ];
 }

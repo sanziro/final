@@ -28,10 +28,10 @@ class UsuarioController extends Controller
       }
       public function decodificar(){
         
-        $password = 'responsable';
+        $password = '123';
         $hashedPassword = Hash::make($password);
-        $users=Usuario::all();
-        echo $users;
+        //$users=Usuario::all();
+        //echo $users;
         echo $hashedPassword;
 
       }

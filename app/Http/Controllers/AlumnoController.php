@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Modelos\Configuracion;
-
+use Gate;
+use Auth;
 use App\Http\Requests;
-
-class frontend_controller extends Controller
+use App\Modelos\Configuracion;
+use App\Modelos\Alumno;
+use DB;
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,18 +18,18 @@ class frontend_controller extends Controller
      */
     public function index()
     {
+        if (Gate::denies('soy_', 'administracion')) {
+            abort(403);    //ver a donde redireccionar o q hacer
+        }
+     
         $conf=Configuracion::find(1);
-        if($conf->habilitada){
-
-         return view('LoginController.login', ['titulo' => $conf->titulo,
-                                        'descripcion'=>$conf->descripcion,
-                                        'contacto'=>$conf->mailContacto]);
-        }
-        else{
-            return view('indexNoHabil', ['titulo' => $conf->titulo,
-                                        'msj'=>$conf->textoDeshab,
-                                        'contacto'=>$conf->mailContacto]);
-        }
+        $alumnos=Alumno::paginate($conf->cantElem);  //all()->paginate(12);
+       $alumnos->setPath('/final/public/homeAdmin');
+       return view('AlumnoController.index', ['titulo' => $conf->titulo,
+                                      'descripcion'=>$conf->descripcion,
+                                      'contacto'=>$conf->mailContacto,
+                                      'alumnos'=>$alumnos]);
+      
     }
 
     /**
