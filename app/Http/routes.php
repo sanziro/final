@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'frontend_controller@index');
-Route::get('algo', 'prueba@configuracion');
+
