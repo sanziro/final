@@ -1,21 +1,21 @@
 <?php
 
 namespace App;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Model
 {
-   protected $table = 'my_users';
-   protected $fillable = ['first_name', 'last_name', 'email'];
-   protected $guarded = ['id', 'password'];
+  /* protected $table = 'Usuarios';
+   protected $fillable = ['username', 'rol'];
+   protected $guarded = ['id','habilitado', 'password'];
 
-   $users = User::all();
+  // $users = User::all();
 
 
-   $user = new User;
+  // $user = new User;
+//$user = Auth::user();
+//$user->username = 'Johnprueba';
 
-$user->name = 'John';
-
-$user->save();
+//$user->save();*/
 }
