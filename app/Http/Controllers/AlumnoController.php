@@ -21,7 +21,7 @@ class AlumnoController extends Controller
         if (Gate::denies('soy_', 'administracion')) {
             abort(403);    //ver a donde redireccionar o q hacer
         }
-     
+
         $conf=Configuracion::find(1);
         $alumnos=Alumno::paginate($conf->cantElem);  //all()->paginate(12);
        $alumnos->setPath('/final/public/homeAdmin');
@@ -29,7 +29,7 @@ class AlumnoController extends Controller
                                       'descripcion'=>$conf->descripcion,
                                       'contacto'=>$conf->mailContacto,
                                       'alumnos'=>$alumnos]);
-      
+
     }
 
     /**
@@ -72,7 +72,11 @@ class AlumnoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $user->email = Input::get('email');
+        $user->password = Input::get('password');
+        $user->habilitado = Input::get('habilitado');
+        $user->rol = Input::get('rol');
     }
 
     /**
