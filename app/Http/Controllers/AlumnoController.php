@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Gate;
 use Auth;
 use App\Http\Requests;
@@ -24,7 +25,7 @@ class AlumnoController extends Controller
 
         $conf=Configuracion::find(1);
         $alumnos=Alumno::paginate($conf->cantElem);  //all()->paginate(12);
-       $alumnos->setPath('/final/public/homeAdmin');
+       $alumnos->setPath('/final/public/alumno');
        return view('AlumnoController.index', ['titulo' => $conf->titulo,
                                       'descripcion'=>$conf->descripcion,
                                       'contacto'=>$conf->mailContacto,
@@ -73,8 +74,11 @@ class AlumnoController extends Controller
       // $alumno->direccion=$request->alumno['direccion'];
        $alumno->fechaIngreso=$request->alumno['fechaIngreso'];
        $alumno->fechaEgreso=$request->alumno['fechaEgreso'];
+      // $alumno->fechaAlta=getdate();
+       
        //echo $alumno;
        $alumno->save();
+       return Redirect::to('/alumno');
     }
 
     /**
@@ -85,8 +89,8 @@ class AlumnoController extends Controller
      */
     public function show($id)
     {
-        $conf=Alumno::find($id);
-        echo $conf;
+        $alumno=Alumno::find($id);
+        echo $alumno;
     }
 
     /**
