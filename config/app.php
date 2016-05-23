@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+         'Illuminate\Html\HtmlServiceProvider',
          'Collective\Html\HtmlServiceProvider',
         Illuminate\Auth\AuthServiceProvider::class,
 
@@ -149,6 +150,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
 
         /*
@@ -159,6 +161,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
 
     ],
 
@@ -177,6 +180,7 @@ return [
 
       'Form' => 'Collective\Html\FormFacade',
       'Html' => 'Collective\Html\HtmlFacade',
+      'HTML'=> 'Illuminate\Html\HtmlFacade',
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

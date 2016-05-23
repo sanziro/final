@@ -48,7 +48,7 @@ if ($validator->fails()) {
         // for now we'll just echo success (even though echoing in a controller is bad)
         //echo Auth::user()->rol;
        // echo 'entro!';
-         return Redirect::to('/alumnos');
+         return Redirect::to('/alumno');
 
     } else {
       echo "no entro";

@@ -60,10 +60,11 @@ class ConfiguracionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $conf=Configuracion::find($id);
-        return view('ConfiguracionController.edit', ['datos' => $conf,   //no se por q no anda mauri HELP 
+        $conf=Configuracion::find(1);
+        return view('ConfiguracionController.edit', ['titulo' => $conf->titulo,
+                                                      'datos' => $conf,   //no se por q no anda mauri HELP 
                                                      'contacto'=>$conf->mailContacto]);
     }
 

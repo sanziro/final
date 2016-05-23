@@ -39,7 +39,14 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+      if (Gate::denies('soy_', 'administracion')) {
+            abort(403);    //ver a donde redireccionar o q hacer
+        }
+       $conf=Configuracion::find(1);
+       
+    return view('AlumnoController.create',['titulo' => $conf->titulo,
+                                      'descripcion'=>$conf->descripcion,
+                                      'contacto'=>$conf->mailContacto]);
     }
 
     /**
@@ -50,7 +57,24 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       if (Gate::denies('soy_', 'administracion')) {
+            abort(403);    //ver a donde redireccionar o q hacer
+        }
+       // echo $request;
+       $conf=Configuracion::find(1);
+       // echo $request->alumno;
+       $alumno=new Alumno;                                                                            
+       $alumno->nombre=$request->alumno['nombre']; 
+       $alumno->apellido=$request->alumno['apellido'];
+       $alumno->numeroDoc=$request->alumno['numeroDoc'];
+       $alumno->sexo=$request->alumno['sexo'];
+       $alumno->fechaNacimiento=$request->alumno['fechaNacimiento'];
+       $alumno->mail=$request->alumno['mail'];
+      // $alumno->direccion=$request->alumno['direccion'];
+       $alumno->fechaIngreso=$request->alumno['fechaIngreso'];
+       $alumno->fechaEgreso=$request->alumno['fechaEgreso'];
+       //echo $alumno;
+       $alumno->save();
     }
 
     /**
@@ -61,7 +85,8 @@ class AlumnoController extends Controller
      */
     public function show($id)
     {
-        //
+        $conf=Alumno::find($id);
+        echo $conf;
     }
 
     /**
