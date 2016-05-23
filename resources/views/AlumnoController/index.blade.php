@@ -66,6 +66,7 @@
           </div>
        @endforeach
     </table>
+    <br>
     {{$alumnos}}
         @else
             

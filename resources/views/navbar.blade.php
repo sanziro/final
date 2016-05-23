@@ -46,7 +46,7 @@
         </li>
         
         <li><a href="../controlador/controlador_listadosAlumnosConMatricula.php">Listados Varios</a></li>
-          <li><a href="../controlador/ConfigAdmin.php">Configuración</a></li>
+          <li><a href="{{ url('configuracion') }}/1/edit">Configuracion</a></li>
          <li><a href="../controlador/mapa.php">Mapa</a></li>
       </ul>
       {{-- {% elseif tipo =='gestion' %}

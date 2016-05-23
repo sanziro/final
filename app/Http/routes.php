@@ -16,10 +16,13 @@ Route::post('login','LoginController@dologin');//el middleware no va en esta va 
 // route to process the form
 //Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {           //grupo para las rutas q requieren autentificacion
-    Route::get('/homeAdmin',['uses'=>'AlumnoController@index']);//el chequeo de roles se hace en cada controlador ver alumnosController
+    Route::get('/alumnos',['uses'=>'AlumnoController@index']);//el chequeo de roles se hace en cada controlador ver alumnosController
     Route::get('/alumno/{id}',['uses'=>'AlumnoController@show']);
     Route::get('/alumno/{id}/edit',['uses'=>'AlumnoController@edit']);
     Route::get('/alumno/{id}/delete',['uses'=>'AlumnoController@destroy']);
+    Route::get('/alumno/new',['uses'=>'AlumnoController@create']);
+    Route::post('/alumno/new',['uses'=>'AlumnoController@store']);
+    Route::resource('configuracion','ConfiguracionController');
 });
 
 
@@ -28,3 +31,4 @@ Route::get('/deco', 'UsuarioController@decodificar');
 Route::get('backend/usuarios', 'UsuarioController@index');
 Route::post('backend/usuarios/add', 'UsuarioController@add');
 
+?>

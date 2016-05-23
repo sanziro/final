@@ -18,8 +18,9 @@
 
         <div class="container">
             @yield('content')
-            <footer>{{$contacto}}</footer>
+            
         </div>
-        
+        <footer>{{$contacto}}</footer>
+        </div>
     </body>
 </html>
