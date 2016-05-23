@@ -1,5 +1,21 @@
 <html>
     <head>
+      <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap2.min.js"></script>
+        <script src="js/boostrap-modal.js"></script>
+
+              <script>
+                  function salir(){
+                      location.href="frontend_controller.php?flag=true";
+                  }
+              </script>
+              <link rel="stylesheet" href="css/font-awesome.min.css">
+          <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+              <link rel="shortcut icon" href="Imagenes/JoaquinVGonzalez222.ico">
+
+              <link rel="stylesheet" href="css/abm.css">
         <title>Escuela Graduada Joaquín V. González</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,5 +39,7 @@
         </div>
         <footer>{{$contacto}}</footer>
         </div>
+
+
     </body>
 </html>

@@ -5,15 +5,16 @@
             <div class="contents">
                 <ul>
 </ul>    @if ($alumnos->count() > 0 )
-            <table class="table table-striped" > 
-        
+            <table class="table table-striped" >
+
           <caption ><h4>Alumnos activos en el sistema</h4></caption>
-            <thead>                          
-                                      
-                                      {{--{% if elimino_alumno %} <div class="alert alert-success alert-dismissable">
-  					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong>El Alumno </strong> se elimino correctamente.
-						</div>  {% endif %}  --}}
+            <thead>
+
+              {{--{% if elimino_alumno %}
+               <div class="alert alert-success alert-dismissable">
+  					          <button type="button" class="close" data-dismiss="alert">&times;</button>
+					            <strong>El Alumno </strong> se elimino correctamente.
+						  </div>  {% endif %}  --}}
 
           <tr>
             <th id='col_dni'>Nº de documento</th>
@@ -44,7 +45,7 @@
             <a href="/alumno/{{$alumno->id}}/edit"> <img class='iconoListado' alt='Modificar la información del alumno' title='Modificar la información del alumno' src='images/iconoModif.png'></a>
             <img class='iconoListado' alt='Eliminar alumno' title='Eliminar alumno' src='images/iconoElim.png'>
 
-            
+
 
             </td>
         </tr>
@@ -57,7 +58,7 @@
                 </div>
                 <div class="modal-body">
                     <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                    
+
                       <a href="alumno/{{$alumno->id}}/delete"><button class="btn btn-danger">Confirmar</button></a>
 
                 </div>
@@ -69,13 +70,13 @@
     <br>
     {{$alumnos}}
         @else
-            
+
             <h3>No hay alumnos registrados</h3>
-         
+
          @endif
-            
+
              </div>
-            
+
         </div>
-          
+
 @endsection
