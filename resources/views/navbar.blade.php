@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../controlador/controlador_login.php">Cooperadora</a>
+      <a class="navbar-brand" href="{{ url('alumno') }}">Cooperadora</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,7 +69,7 @@
             {% endif %} --}}
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a onclick="salir()">Cerrar sesión</a></li>
+        <li><a href="{{ URL::route('logout') }}">Cerrar sesión</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

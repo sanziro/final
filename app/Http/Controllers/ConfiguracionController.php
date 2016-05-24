@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Gate;
 use Auth;
 use App\Http\Requests;
 use App\Modelos\Configuracion;
 use App\Modelos\Alumno;
 use DB;
-
+use Illuminate\Support\Facades\Input;
 class ConfiguracionController extends Controller
 {
     /**
@@ -77,7 +78,15 @@ class ConfiguracionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $configuracion = Configuracion::find(1);
+        $configuracion ->titulo = Input::get('titulo');
+        $configuracion ->mailContacto =  Input::get('mailContacto');
+        $configuracion ->cantElem =    Input::get('cantElem');
+        $configuracion ->textoDeshab =   Input::get('textoDeshab');
+        $configuracion ->descripcion =  Input::get('descripcion');
+        $configuracion ->habilitada =   Input::get('habilitada') ;
+        $configuracion->save();
+        return Redirect::to('/configuracion/1/edit');
     }
 
     /**

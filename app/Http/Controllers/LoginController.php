@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
   use Illuminate\Support\Facades\Validator;
   use Illuminate\Support\Facades\Input;
   use Illuminate\Support\Facades\Redirect;
+  use  Illuminate\Support\Facades\URL;
   use Auth;
 class LoginController extends Controller
 {
@@ -58,6 +59,10 @@ if ($validator->fails()) {
 
     }
 
-//}
+
 }
+  public function logout (){
+    Auth::logout();
+    return Redirect::guest(URL::route('/'));
+  }
 }
