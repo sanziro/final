@@ -41,26 +41,23 @@
           <td headers='col_fecing'>{{$alumno->fechaIngreso }}</td>
           <td  headers='col_feceg'>{{$alumno->fechaEgreso }}</td>
           <td  headers='col_acc'>
-             <a href="/alumno/{{$alumno->id}}" <img class='iconoListado' alt='Ver mas información del alumno' title='Ver mas información del alumno' src='images/iconoInfo.png'></a>
-            <a href="/alumno/{{$alumno->id}}/edit"> <img class='iconoListado' alt='Modificar la información del alumno' title='Modificar la información del alumno' src='images/iconoModif.png'></a>
-            <img class='iconoListado' alt='Eliminar alumno' title='Eliminar alumno' src='images/iconoElim.png'>
-
-
-
+             {{--<a href="alumno/{{$alumno->id}}" <img class='iconoListado' alt='Ver mas información del alumno' title='Ver mas información del alumno' src='images/iconoModif.png'></a>--}}
+            <a href="{{action('AlumnoController@edit', ['id' => $alumno->id])}}"> <img class='iconoListado' alt='Modificar la información del alumno' title='Modificar la información del alumno' src='images/iconoModif.png'></a>
+            <img  data-toggle="modal" data-target="#{{$alumno->id}}" class='iconoListado' alt='Eliminar alumno' title='Eliminar alumno' src='images/iconoElim.png'>
             </td>
         </tr>
-        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id='{{$alumno->id }}' aria-labelledby="myLargeModalLabel" style="display: none;">
+         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id='{{$alumno->id}}' aria-labelledby="myLargeModalLabel" style="display: none;">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                  <h4 class="modal-title" id="myLargeModalLabel">Confirme eliminación del alumno {{$alumno->nombre }} {{$alumno->apellido }} </h4>
+                  <h4 class="modal-title" id="myLargeModalLabel">Confirme eliminación del alumno {{$alumno->nombre}} {{$alumno->apellido}} </h4>
                 </div>
                 <div class="modal-body">
                     <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-
-                      <a href="alumno/{{$alumno->id}}/delete"><button class="btn btn-danger">Confirmar</button></a>
-
+                    {{Form::open(array('method'=>'DELETE','action' => array('AlumnoController@destroy', $alumno->id)))}}
+                      <button type='submit' name='ideliminar' class="btn btn-danger">Confirmar</button>
+                    {{Form::close()}}
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

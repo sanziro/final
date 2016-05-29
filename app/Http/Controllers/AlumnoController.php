@@ -101,11 +101,13 @@ class AlumnoController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        $user->email = Input::get('email');
-        $user->password = Input::get('password');
-        $user->habilitado = Input::get('habilitado');
-        $user->rol = Input::get('rol');
+       
+        $alumno = Alumno::find($id);
+       $conf=Configuracion::find(1);
+       return view('AlumnoController.edit',['titulo' => $conf->titulo,
+                                      'descripcion'=>$conf->descripcion,
+                                      'contacto'=>$conf->mailContacto,
+                                      'alumno'=>$alumno]);
     }
 
     /**
@@ -117,7 +119,25 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->nombre=$request->alumno['nombre']; 
+       $alumno->apellido=$request->alumno['apellido'];
+       $alumno->numeroDoc=$request->alumno['numeroDoc'];
+       $alumno->sexo=$request->alumno['sexo'];
+       $alumno->fechaNacimiento=$request->alumno['fechaNacimiento'];
+       $alumno->mail=$request->alumno['mail'];
+      
+       $alumno->fechaIngreso=$request->alumno['fechaIngreso'];
+       $alumno->fechaEgreso=$request->alumno['fechaEgreso'];
+      
+       
+       //echo $alumno;
+       $alumno->save();
+       $conf=Configuracion::find(1);
+       return view('AlumnoController.edit',['titulo' => $conf->titulo,
+                                      'descripcion'=>$conf->descripcion,
+                                      'contacto'=>$conf->mailContacto,
+                                      'alumno'=>$alumno]);
     }
 
     /**
@@ -128,6 +148,7 @@ class AlumnoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alumnos::destroy($id);
+        return redirect()->action('AlumnoController@index');
     }
 }

@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Gate;
-use Auth;
+
 use App\Http\Requests;
-use App\Modelos\Configuracion;
-use App\Modelos\Alumno;
-use DB;
-use Illuminate\Support\Facades\Input;
-class ConfiguracionController extends Controller
+
+class ResponsableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +15,7 @@ class ConfiguracionController extends Controller
      */
     public function index()
     {
-//
+        //
     }
 
     /**
@@ -61,17 +56,9 @@ class ConfiguracionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-         if (Gate::denies('soy_', 'administracion')) {
-            abort(403);    //ver a donde redireccionar o q hacer
-        }
-        
-        $conf=Configuracion::find(1);
-        return view('ConfiguracionController.edit', ['titulo' => $conf->titulo,
-                                                      'datos' => $conf,   //no se por q no anda mauri HELP 
-                                                     'contacto'=>$conf->mailContacto]);
-                                                     
+        //
     }
 
     /**
@@ -83,18 +70,7 @@ class ConfiguracionController extends Controller
      */
     public function update(Request $request, $id)
     {
-         if (Gate::denies('soy_', 'administracion')) {
-            abort(403);    //ver a donde redireccionar o q hacer
-        }
-        $configuracion = Configuracion::find(1);
-        $configuracion ->titulo = Input::get('titulo');
-        $configuracion ->mailContacto =  Input::get('mailContacto');
-        $configuracion ->cantElem =    Input::get('cantElem');
-        $configuracion ->textoDeshab =   Input::get('textoDeshab');
-        $configuracion ->descripcion =  Input::get('descripcion');
-        $configuracion ->habilitada =   Input::get('habilitada') ;
-        $configuracion->save();
-        return Redirect::to('/configuracion/1/edit');
+        //
     }
 
     /**

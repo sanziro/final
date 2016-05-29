@@ -129,6 +129,7 @@ return [
          'Illuminate\Html\HtmlServiceProvider',
          'Collective\Html\HtmlServiceProvider',
         Illuminate\Auth\AuthServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -181,6 +182,8 @@ return [
       'Form' => 'Collective\Html\FormFacade',
       'Html' => 'Collective\Html\HtmlFacade',
       'HTML'=> 'Illuminate\Html\HtmlFacade',
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

@@ -29,7 +29,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnos <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <li><a href="{{url('alumno')}}/create">Agregar alumno</a></li>
-            <li><a href="../controlador/controlador_listadoAlumnos.php">Listado de alumnos</a></li>
+            <li><a href="{{action('AlumnoController@index')}}">Listado de alumnos</a></li>
             <!--<li role="separator" class="divider"></li>-->
             
           </ul>
