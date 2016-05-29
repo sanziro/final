@@ -45,13 +45,13 @@
           </ul>
         </li>
         
-        <li><a href="../controlador/controlador_listadosAlumnosConMatricula.php">Listados Varios</a></li>
+        <li><a href="{{ url('estadisticas')}}/{{Auth::user()->id}}">Listados Varios</a></li>
           <li><a href="{{ url('configuracion') }}/1/edit">Configuracion</a></li>
          <li><a href="../controlador/mapa.php">Mapa</a></li>
       </ul>
       {{-- {% elseif tipo =='gestion' %}
             <li><a href="../controlador/controlador_registrarPagoElegirAlumno.php">Registrar pago</a></li>
-        <li><a href="../controlador/controlador_listadosAlumnosConMatricula.php">Listados Varios</a></li>
+        <li><a href="{{ url('estadisticas') }}/{{Auth::user()->id}}">Listados Varios</a></li>
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuotas<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -63,8 +63,7 @@
         </li>
         </ul>
         {% elseif tipo == 'consulta' %}
-                <!--cambiar a q mira el tipo consulta en los listados</li>-->
-                 <li><a href="../controlador/controlador_listadosAlumnosConMatricula.php">Listados Varios</a></li>
+                 <li><a href="{{ url('estadisticas') }}/{{Auth::user()->id}}">Listados Varios</a></li>
                   </ul>
             {% endif %} --}}
      

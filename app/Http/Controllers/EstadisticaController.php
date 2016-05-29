@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Input;
 class EstadisticaController extends Controller
 {
      public function index($iduser){
+         echo "holaa";
         if (Gate::denies('soy_', 'consulta')) {
             
             $con=DB::insert("SELECT * 
@@ -40,7 +41,7 @@ class EstadisticaController extends Controller
         }
         $alumnos=Alumno::paginate($con->cantElem);  //all()->paginate(12);
        $alumnos->setPath('/final/public/estadisticas/'.$iduser);
-       return view('AlumnoController.index', ['datos' => $con]);               
+       echo "$con->cantElem";
     }
  
  
@@ -90,13 +91,13 @@ class EstadisticaController extends Controller
         else{
              if ($type == 1) {
             return $con=DB::insert("SELECT * 
-	                    FROM Alumnos INNER JOIN Pagos ON (Alumnos.id=Pagos.idAlumno) 
+	                                 FROM Alumnos INNER JOIN Pagos ON (Alumnos.id=Pagos.idAlumno) 
 	                                 INNER JOIN Cuotas ON (Pagos.idCuota=Cuotas.id) 
 	                                 INNER JOIN AlumnoResponsable ON (Alumnos.id = AlumnoResponsable.idAlumno) 
 	                                 INNER JOIN Responsables ON (Responsables.id= AlumnoResponsable.idResponsable) 
 	                                 INNER JOIN UsuarioResponsable ON (UsuarioResponsable.idResponsable=Responsables.id) 
 	                                 INNER JOIN Usuarios ON (Usuarios.id=UsuarioResponsable.idUsuario) 
-	                    WHERE Cuotas.tipo='matricula' and Alumnos.eliminado=0 and Cuotas.anio = YEAR(CURRENT_DATE()) and Usuarios.username=?", [$iduser]);
+	                                 WHERE Cuotas.tipo='matricula' and Alumnos.eliminado=0 and Cuotas.anio = YEAR(CURRENT_DATE()) and Usuarios.username=?", [$iduser]);
        }
         if ($type == 2) {
             return $con=DB::insert("SELECT * FROM Cuotas 

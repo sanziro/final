@@ -18,14 +18,12 @@ Route::post('login','LoginController@dologin');//el middleware no va en esta va 
 Route::get('logout', array( 'as' => 'logout', 'uses' => 'LoginController@logout'));
 
 Route::group(['middleware' => 'auth'], function () {           //grupo para las rutas q requieren autentificacion
-
-    Route::get('/estadisticas1', array( 'as' => '/', 'uses' => 'EstadisticaController@coutaspagadas'));
     Route::get('/alumno/{id}/edit/responsables',array( 'uses' => 'ResponsableController@index'));
     Route::resource('configuracion','ConfiguracionController');
     Route::resource('alumno','AlumnoController');
     Route::get('/estadistica/{iduser}', array( 'as' => '/estadistica', 'uses' => 'EstadisticaController@index'));
     Route::post('/estadistica/{iduser}', array( 'as' => '/estadistica', 'uses' => 'EstadisticaController@show'));
-    
+    Route::resource('cuota','CuotaController');
 });
 
 
